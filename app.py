@@ -270,27 +270,6 @@ def main():
     # Header
     st.markdown("<h1 class='main-header'>🌐 Universal Web-Based AI System</h1>", unsafe_allow_html=True)
     st.markdown("<p class='sub-header'>Process any website and query its content with AI-powered RAG</p>", unsafe_allow_html=True)
-    
-    # Sidebar
-    with st.sidebar:
-        st.header("ℹ️ About")
-        st.markdown("""
-        This system uses **Retrieval-Augmented Generation (RAG)** to:
-        
-        1. 🌐 **Scrape** website content
-        2. 🧹 **Clean** and preprocess data
-        3. 🔢 **Generate** text embeddings
-        4. 💾 **Store** in vector database (FAISS)
-        5. 🤖 **Answer** queries using AI
-        
-        **Models Used:**
-        - Embeddings: `all-MiniLM-L6-v2`
-        - LLM: `google/flan-t5-base`
-        - Vector DB: `FAISS`
-        
-        **Note:** First run downloads models (~1GB)
-        """
-        )
         
         st.header("📊 Pipeline Status")
         if st.session_state.pipeline_state['ready']:
