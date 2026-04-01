@@ -270,18 +270,21 @@ def main():
     # Header
     st.markdown("<h1 class='main-header'>🌐 Universal Web-Based AI System</h1>", unsafe_allow_html=True)
     st.markdown("<p class='sub-header'>Process any website and query its content with AI-powered RAG</p>", unsafe_allow_html=True)
-        
-        st.header("📊 Pipeline Status")
-        if st.session_state.pipeline_state['ready']:
-            st.success("✅ Model Ready")
-            st.markdown(f"**URL:** {st.session_state.pipeline_state['url'][:50]}...")
-            st.markdown(f"**Chunks:** {len(st.session_state.pipeline_state['chunks'])}")
-        else:
-            st.warning("⏳ Not Initialized")
-        
-        if st.button("🔄 Reset Pipeline"):
-            reset_pipeline()
-            st.rerun()
+    
+    # Pipeline Status Section
+    st.header("📊 Pipeline Status")
+    
+    if st.session_state.pipeline_state['ready']:
+        st.success("✅ Model Ready")
+        st.markdown(f"**URL:** {st.session_state.pipeline_state['url'][:50]}...")
+        st.markdown(f"**Chunks:** {len(st.session_state.pipeline_state['chunks'])}")
+    else:
+        st.warning("⏳ Not Initialized")
+    
+    # Reset Button
+    if st.button("🔄 Reset Pipeline"):
+        reset_pipeline()
+        st.rerun()
     
     # Main content area
     tab1, tab2 = st.tabs(["🌐 Process Website", "❓ Ask Questions"])
